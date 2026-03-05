@@ -23,3 +23,23 @@ TI-Analyst-Pro is a local SIEM (Security Information and Event Management) tool 
 3. Run the master script:
    ```bash
    ./generate_daily_brief.sh
+
+## 🎯 MITRE ATT&CK® Coverage
+The system currently monitors and identifies the following techniques:
+
+| ID | Technique | Category | Logic |
+| :--- | :--- | :--- | :--- |
+| **T1110** | Brute Force | Credential Access | Detection of repeated failed login attempts. |
+| **T1210** | Exploitation of Remote Services | Lateral Movement | Internal-to-internal SSH/SQL anomalies. |
+| **T1078** | Valid Accounts | Defense Evasion | Monitoring for unusual admin account activity. |
+| **T1190** | Exploit Public-Facing Application | Initial Access | Identifying SQL injection & web exploit patterns. |
+| **T1514** | IT Software Distribution | Execution | Detecting unauthorized remote script executions. |
+
+---
+
+## 🔧 Core Logic Flow
+1. **Ingest**: Monitor `/var/log/threats.log` for raw telemetry.
+2. **Normalize**: Map raw events to MITRE IDs based on regex patterns.
+3. **Enrich**: Query AbuseIPDB for reputation scores.
+4. **Summarize**: Send high-risk hits to Gemini for LLM context.
+5. **Visualize**: Output PNG distribution charts via Matplotlib.
