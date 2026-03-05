@@ -1,0 +1,18 @@
+Subject: 🛡️ Security Daily Brief: 
+To: 
+------------------------------------------------
+DAILY THREAT SUMMARY - 
+------------------------------------------------
+Total Threats Neutralized:       50
+  - Honeypot Triggers:     21
+  - Lateral Movements:     27
+  - External Brute Force:  25
+
+TOP CRITICAL EVENTS:
+📍 IP: 185.123.45.67   | TTP: T1210  | Multiple failed root logins from 185.123.45.67 indicate lateral movement activity  likely an insider threat. 
+📍 IP: 185.123.45.67   | TTP: T1210  | Lateral Movement detected  IP 185.123.45.67 is a known SSH/SQL activity source. 
+📍 IP: 185.123.45.67   | TTP: T1210  | Lateral Movement detected  IP 185.123.45.67 is a potential threat actor with SSH activity in Region XX. 
+📍 IP: 185.123.45.67   | TTP: T1210  | Lateral Movement detected due to SSH/SQL activity from IP 185.123.45.67  Region XX. 
+📍 IP: 185.123.45.67   | TTP: T1210  | Lateral Movement detected  IP 185.123.45.67 is a potential threat in Region XX with no Abuse Score. 
+
+All identified IPs have been automatically blocked via Firewall.
