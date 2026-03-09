@@ -1,3 +1,4 @@
 .env
 venv/
 .DS_Store
+daily_threat_chart.png
