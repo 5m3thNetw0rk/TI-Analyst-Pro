@@ -1,45 +1,52 @@
-# 🛡️ TI-Analyst-Pro 
+# 🛡️ TI-Analyst-Pro
 **AI-Augmented Threat Intelligence & MITRE ATT&CK Mapping System**
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue.svg) 
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
 ![Bash](https://img.shields.io/badge/Shell-Bash-green.svg)
-![AI](https://img.shields.io/badge/AI-Gemini_Flash-orange.svg)
+![AI](https://img.shields.io/badge/AI-Local_Ollama-blueviolet.svg)
+![Model](https://img.shields.io/badge/Model-Llama3.2_Custom-white.svg)
 
 ## 📖 Overview
-TI-Analyst-Pro is a local SIEM (Security Information and Event Management) tool designed to ingest system logs, categorize threats using **MITRE ATT&CK** TTPs, and generate AI-driven executive summaries.
+TI-Analyst-Pro is a **Privacy-First** local SIEM (Security Information and Event Management) tool designed to simulate adversary behavior, ingest system logs, and perform automated forensic analysis. Unlike traditional cloud-based tools, this pipeline utilizes a **custom-tuned local LLM (ti-expert)** to translate raw telemetry into structured security briefs without sending data to external APIs.
 
 ## 📊 Visualized Threat Distribution
+The system generates a daily Matplotlib chart to track attack vectors over time.
 ![Threat Distribution Chart](./daily_threat_chart.png)
 
 ## 🚀 Key Features
-* **Automated Log Analysis**: Parses `/var/log` for unauthorized access attempts.
-* **MITRE ATT&CK Mapping**: Automatically tags events with TTPs (e.g., T1210, T1110).
-* **AI Summarization**: Uses Google Gemini to translate raw logs into readable security briefs.
-* **Visualization**: Generates daily Matplotlib charts for high-level oversight.
+* **Adversary Simulation**: Includes a Python-based simulator to generate realistic attack logs for testing SOC workflows.
+* **Local Forensic AI**: Uses a custom-engineered **Ollama Modelfile** to act as a Senior DFIR Specialist, mapping threats to MITRE TTPs and providing actionable remediation steps.
+* **Automated Log Orchestration**: A Bash-driven pipeline that cleans logs, triggers Python analytics, and queries the local AI.
+* **Scheduled Reporting**: Fully integrated with `cron` for automated daily executive briefings.
 
 ## 🛠️ Installation & Usage
-1. Clone the repo: `git clone https://github.com/5m3thNetw0rk/TI-Analyst-Pro.git`
-2. Add your API key to a `.env` file.
-3. Run the master script:
+1. **Clone the repo**:
    ```bash
-   ./generate_daily_brief.sh
+   git clone [https://github.com/5m3thNetw0rk/TI-Analyst-Pro.git](https://github.com/5m3thNetw0rk/TI-Analyst-Pro.git)
+   cd TI-Analyst-Pro
 
-## 🎯 MITRE ATT&CK® Coverage
-The system currently monitors and identifies the following techniques:
+Set up Environment:
+python3 -m venv venv
+source venv/bin/activate
+pip install pandas matplotlib
 
-| ID | Technique | Category | Logic |
-| :--- | :--- | :--- | :--- |
-| **T1110** | Brute Force | Credential Access | Detection of repeated failed login attempts. |
-| **T1210** | Exploitation of Remote Services | Lateral Movement | Internal-to-internal SSH/SQL anomalies. |
-| **T1078** | Valid Accounts | Defense Evasion | Monitoring for unusual admin account activity. |
-| **T1190** | Exploit Public-Facing Application | Initial Access | Identifying SQL injection & web exploit patterns. |
-| **T1514** | IT Software Distribution | Execution | Detecting unauthorized remote script executions. |
+Initialize the Local AI Expert:
+Make sure Ollama is installed and running, then:
+ollama pull llama3.2:1b
+ollama create ti-expert -f Modelfile
 
----
+Run the master script:
+python3 adversary_sim.py && ./generate_daily_brief.sh
 
-## 🔧 Core Logic Flow
-1. **Ingest**: Monitor `/var/log/threats.log` for raw telemetry.
-2. **Normalize**: Map raw events to MITRE IDs based on regex patterns.
-3. **Enrich**: Query AbuseIPDB for reputation scores.
-4. **Summarize**: Send high-risk hits to Gemini for LLM context.
-5. **Visualize**: Output PNG distribution charts via Matplotlib.
+🎯 MITRE ATT&CK® CoverageThe system identifies and analyzes the following techniques:IDTechniqueCategoryLogicT1110Brute ForceCredential AccessDetection of repeated failed login attempts.T1210Exploitation of Remote ServicesLateral MovementInternal-to-internal SSH/SQL anomalies.T1078Valid AccountsDefense EvasionMonitoring for unusual admin account activity.T1190Exploit Public-Facing ApplicationInitial AccessIdentifying SQL injection & web exploit patterns.T1514IT Software DistributionExecution
+
+🔧 Core Logic Flow
+Simulate/Ingest: Generate/Monitor threat_intel_report.csv for raw telemetry.
+
+Normalize: Map raw events to MITRE IDs based on regex patterns.
+
+Analyze: Pipe refined logs into the ti-expert local model.
+
+Summarize: Generate structured forensic findings (Potential Insider Threats & Recommended Actions).
+
+Visualize: Output PNG distribution charts via Matplotlib.
