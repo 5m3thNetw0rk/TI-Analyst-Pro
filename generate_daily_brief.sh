@@ -56,3 +56,17 @@ echo "✅ Daily Brief and Chart are ready!"
 echo "📄 Text: daily_brief.txt"
 echo "🖼️ Image: daily_threat_chart.pn"
 echo "✅ All reports generated successfully."
+
+echo "🧠 Consulting Local AI (Llama 3) for Executive Summary..."
+
+AI_SUMMARY=$(echo "Analyze these logs: $(cat daily_brief.txt)" | ollama run ti-expert)
+
+{
+    echo "------------------------------------------------"
+    echo "EXECUTIVE AI ANALYSIS"
+    echo "------------------------------------------------"
+    echo "$AI_SUMMARY"
+    echo ""
+} >> daily_brief.txt
+
+echo "🤖 AI Analysis complete and added to daily_brief.txt"
