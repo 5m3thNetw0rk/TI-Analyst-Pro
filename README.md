@@ -38,15 +38,20 @@ ollama create ti-expert -f Modelfile
 Run the master script:
 python3 adversary_sim.py && ./generate_daily_brief.sh
 
-🎯 MITRE ATT&CK® CoverageThe system identifies and analyzes the following techniques:IDTechniqueCategoryLogicT1110Brute ForceCredential AccessDetection of repeated failed login attempts.T1210Exploitation of Remote ServicesLateral MovementInternal-to-internal SSH/SQL anomalies.T1078Valid AccountsDefense EvasionMonitoring for unusual admin account activity.T1190Exploit Public-Facing ApplicationInitial AccessIdentifying SQL injection & web exploit patterns.T1514IT Software DistributionExecution
+## 🎯 MITRE ATT&CK® Coverage
+The system identifies and analyzes the following techniques:
 
-🔧 Core Logic Flow
-Simulate/Ingest: Generate/Monitor threat_intel_report.csv for raw telemetry.
+| ID | Technique | Category | Logic |
+| :--- | :--- | :--- | :--- |
+| **T1110** | Brute Force | Credential Access | Detection of repeated failed login attempts. |
+| **T1210** | Exploitation of Remote Services | Lateral Movement | Internal-to-internal SSH/SQL anomalies. |
+| **T1078** | Valid Accounts | Defense Evasion | Monitoring for unusual admin account activity. |
+| **T1190** | Exploit Public-Facing Application | Initial Access | Identifying SQL injection & web exploit patterns. |
+| **T1514** | IT Software Distribution | Execution | Detecting unauthorized remote script executions. |
 
-Normalize: Map raw events to MITRE IDs based on regex patterns.
-
-Analyze: Pipe refined logs into the ti-expert local model.
-
-Summarize: Generate structured forensic findings (Potential Insider Threats & Recommended Actions).
-
-Visualize: Output PNG distribution charts via Matplotlib.
+## 🔧 Core Logic Flow
+* **Simulate/Ingest**: Generate/Monitor `threat_intel_report.csv` for raw telemetry.
+* **Normalize**: Map raw events to MITRE IDs based on regex patterns.
+* **Analyze**: Pipe refined logs into the **`ti-expert`** local model.
+* **Summarize**: Generate structured forensic findings (Potential Insider Threats & Recommended Actions).
+* **Visualize**: Output PNG distribution charts via Matplotlib.Visualize: Output PNG distribution charts via Matplotlib.
