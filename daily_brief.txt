@@ -3,10 +3,10 @@ To:
 ------------------------------------------------
 DAILY THREAT SUMMARY - 
 ------------------------------------------------
-Total Threats Neutralized:       50
-  - Honeypot Triggers:     21
-  - Lateral Movements:     27
-  - External Brute Force:  25
+Total Threats Neutralized: 80
+  - Honeypot Triggers:     23
+  - Lateral Movements:     29
+  - External Brute Force:  28
 
 TOP CRITICAL EVENTS:
 📍 IP: 185.123.45.67   | TTP: T1210  | Multiple failed root logins from 185.123.45.67 indicate lateral movement activity  likely an insider threat. 
@@ -16,3 +16,8 @@ TOP CRITICAL EVENTS:
 📍 IP: 185.123.45.67   | TTP: T1210  | Lateral Movement detected  IP 185.123.45.67 is a potential threat in Region XX with no Abuse Score. 
 
 All identified IPs have been automatically blocked via Firewall.
+------------------------------------------------
+EXECUTIVE AI ANALYSIS
+------------------------------------------------
+
+

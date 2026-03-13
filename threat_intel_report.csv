@@ -91,3 +91,13 @@ Thu  5 Mar 2026 13:47:54 GMT,1.2.3.4,AU,62,HIGH,T1110,"Here is a summary of the 
 A brute force attack attempt was detected, originating from IP address 1.2.3.4, attempting to gain unauthorized access to the system by guessing the 'root' password."
 Thu  5 Mar 2026 13:47:56 GMT,185.123.45.67,UA,0,CRITICAL,T1078,"A Honeypot Trigger (T1078) was detected, indicating a potential insider threat attempt by the IP address 185.123.45.67 to gain unauthorized access to the system using the finance_admin credentials."
 Thu  5 Mar 2026 13:47:58 GMT,192.168.1.50,INTL,0,CRITICAL,T1210,"A lateral movement incident (T1210) was detected, where an unauthorized user (192.168.1.50) attempted to log in with a failed password on the 'admin' account within the INTL network."
+ 9 Mar,104.244.42.1,Russia,53,High,T1190,Exploit: SQL injection attempt on web portal.
+ 9 Mar,104.244.42.1,Russia,86,High,T1190,Exploit: SQL injection attempt on web portal.
+ 9 Mar,172.16.0.12,Internal,60,High,T1078,Credential Abuse: Admin login from unknown MAC address.
+ 9 Mar,45.33.22.11,China,90,High,T1110,Brute force: Multiple failed logins on root account.
+ 9 Mar,45.33.22.11,China,65,High,T1110,Brute force: Multiple failed logins on root account.
+13 Mar,192.168.1.50,Internal,74,High,T1210,Lateral movement: Unauthorized SSH to Database Server.
+13 Mar,45.33.22.11,China,61,High,T1110,Brute force: Multiple failed logins on root account.
+13 Mar,192.168.1.50,Internal,96,High,T1210,Lateral movement: Unauthorized SSH to Database Server.
+13 Mar,172.16.0.12,Internal,91,High,T1078,Credential Abuse: Admin login from unknown MAC address.
+13 Mar,104.244.42.1,Russia,56,High,T1190,Exploit: SQL injection attempt on web portal.

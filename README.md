@@ -11,7 +11,9 @@ TI-Analyst-Pro is a **Privacy-First** local SIEM (Security Information and Event
 
 ## 📊 Visualized Threat Distribution
 The system generates a daily Matplotlib chart to track attack vectors over time.
-![Threat Distribution Chart](./daily_threat_chart.png)
+
+![Threat Distribution Chart](./sample_threat_chart.png)
+*Note: The chart above is a sample. The actual report is generated locally based on your ingested telemetry.*
 
 ## 🚀 Key Features
 * **Adversary Simulation**: Includes a Python-based simulator to generate realistic attack logs for testing SOC workflows.
@@ -49,9 +51,8 @@ The system identifies and analyzes the following techniques:
 | **T1190** | Exploit Public-Facing Application | Initial Access | Identifying SQL injection & web exploit patterns. |
 | **T1514** | IT Software Distribution | Execution | Detecting unauthorized remote script executions. |
 
-## 🔧 Core Logic Flow
-* **Simulate/Ingest**: Generate/Monitor `threat_intel_report.csv` for raw telemetry.
-* **Normalize**: Map raw events to MITRE IDs based on regex patterns.
-* **Analyze**: Pipe refined logs into the **`ti-expert`** local model.
-* **Summarize**: Generate structured forensic findings (Potential Insider Threats & Recommended Actions).
-* **Visualize**: Output PNG distribution charts via Matplotlib.Visualize: Output PNG distribution charts via Matplotlib.
+## 🛡️ Operational Pipeline (The Kill Chain)
+1.  **Ingestion & Provisioning**: `fetch_kev.py` pulls global vulnerability data into the local knowledge base.
+2.  **Telemetry Simulation**: `adversary_sim.py` generates high-fidelity logs mapped to MITRE TTPs.
+3.  **RAG Analysis**: `rag-chat.py` executes a local retrieval-augmented session, grounding the AI in your specific TI documentation.
+4.  **Reporting**: Visualizations and executive briefs are produced locally for decision-makers.
